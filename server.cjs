@@ -8,10 +8,11 @@ connecttodb((error)=>{
         console.log("Error in connecting to database")
         console.log(error)
     }else{
-    app.listen(7000)
-    get= getdb()
-    console.log("running in  port 7000")
-    }
+        const port =process.env.port || 7000
+        app.listen(port)
+        get= getdb()
+        console.log(`Listening on port ${port}...`)
+        }
 })
 app.use(bodyparser.json())
 
